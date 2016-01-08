@@ -28,6 +28,10 @@ class FoodChainTest < Minitest::Test
     assert_equal expected, FoodChain.song
   end
 
+  def test_print_song
+    print FoodChain.song
+  end
+
   # Tests that an error is effectively raised when IO.read or
   # File.open are used within FoodChain.
   def test_read_guard
@@ -39,7 +43,6 @@ class FoodChainTest < Minitest::Test
   # This is some simple book-keeping to let people who are
   # giving feedback know which version of the exercise you solved.
   def test_version
-    skip
     assert_equal 2, FoodChain::VERSION
   end
 end
