@@ -5,23 +5,9 @@ end
 class RunLengthEncoding
 
   def self.encode(input)
-    count = 1
-    index = 0
-    result = [""]
-
-    while index < input.chars.count
-      if input.chars[index] == input.chars[index+1]
-        count += 1
-      else
-        if count > 1
-          result.push(count)
-        end
-        result.push(input.chars[index])
-        count = 1
-      end
-      index +=1
+    input.gsub(/(.)\1+/) do |match|
+      "#{match.length}#{match[0]}"
     end
-    result.join
   end
 
   def self.decode(input)
